@@ -1,5 +1,6 @@
 
 ###> symfony/framework-bundle ###
+/package-lock.json
 /node_modules
 /.env.local
 /.env.local.php
