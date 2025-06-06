@@ -1,20 +1,422 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ContactController!{% endblock %}
+{% block title %}Contact Us - Bitrader
+{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/aos.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/all.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/swiper-bundle.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+	<!-- ===============>> Preloader start here <<================= -->
+	<div class="preloader">
+		<img src="{{ asset('assets/images/logo/preloader.png') }}" alt="preloader icon">
+	</div>
+	<!-- ===============>> Preloader end here <<================= -->
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+	<!-- ===============>> light&dark switch start here <<================= -->
+	<div class="lightdark-switch">
+		<span class="dark-btn" id="btnSwitch"><img src="{{ asset('assets/images/icon/moon.svg') }}" alt="light-dark-switchbtn" class="swtich-icon"></span>
+	</div>
+	<!-- ===============>> light&dark switch start here <<================= -->
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>C:/laragon/www/bitrader/src/Controller/ContactController.php</code></li>
-        <li>Your template at <code>C:/laragon/www/bitrader/templates/contact/index.html.twig</code></li>
-    </ul>
-</div>
+	<!-- ===============>> Header section start here <<================= -->
+	<header class="header-section bg-color-3">
+		<div class="header-bottom">
+			<div class="container">
+				<div class="header-wrapper">
+					<div class="logo">
+						<a href="{{ path('home') }}">
+							<img class="dark" src="{{ asset('assets/images/logo/logo.png') }}" alt="logo">
+						</a>
+					</div>
+					<div class="menu-area">
+						<ul class="menu menu--style1">
+							<li>
+								<a href="#0">Demos
+								</a>
+								<ul class="submenu">
+									<li>
+										<a href="#">Home Stock</a>
+									</li>
+									<li>
+										<a href="#">Home Stock V1<span class="style1">Light</span>
+										</a>
+									</li>
+									<li>
+										<a href="#">Home Stock V2<span class="style2">Dark</span>
+										</a>
+									</li>
+									<li>
+										<a href="#">Home Crypto</a>
+									</li>
+									<li>
+										<a href="#">Home Crypto V1<span class="style1">Light</span>
+										</a>
+									</li>
+									<li>
+										<a href="#">Home Crypto V2<span class="style2">Dark</span>
+										</a>
+									</li>
+									<li>
+										<a href="#">Home Forex</a>
+									</li>
+									<li>
+										<a href="#">Home Forex V1<span class="style1">Light</span>
+										</a>
+									</li>
+									<li>
+										<a href="#">Home Forex V2<span class="style2">Dark</span>
+										</a>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<a href="#0">Services</a>
+								<ul class="submenu">
+									<li>
+										<a href="#">Services</a>
+									</li>
+									<li>
+										<a href="#">Services Details</a>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<a href="#0">About</a>
+								<ul class="submenu">
+									<li>
+										<a href="#">About Us</a>
+									</li>
+									<li>
+										<a href="#">Price</a>
+									</li>
+									<li>
+										<a href="#">Team</a>
+									</li>
+									<li>
+										<a href="#">Team 2</a>
+									</li>
+									<li>
+										<a href="#">Team Details</a>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<a href="#0">Pages</a>
+								<ul class="submenu">
+									<li>
+										<a href="#">Blogs</a>
+									</li>
+									<li>
+										<a href="#">Blog - Side Bar</a>
+									</li>
+									<li>
+										<a href="#">Blog Details</a>
+									</li>
+									<li>
+										<a href="#">Sign Up</a>
+									</li>
+									<li>
+										<a href="#">Sign Up 2</a>
+									</li>
+									<li>
+										<a href="#">Sign In</a>
+									</li>
+									<li>
+										<a href="#">Sign In 2</a>
+									</li>
+									<li>
+										<a href="#">Reset Password</a>
+									</li>
+									<li>
+										<a href="#">Reset Password 2</a>
+									</li>
+									<li>
+										<a href="#">404 Error</a>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<a href="{{ path('contact') }}">Contact Us</a>
+							</li>
+						</ul>
+					</div>
+					<div class="header-action">
+						<div class="menu-area">
+							<div class="header-btn">
+								<a href="#" class="trk-btn trk-btn--border trk-btn--primary">
+									<span>Join Now</span>
+								</a>
+							</div>
+							<!-- toggle icons -->
+							<div class="header-bar d-lg-none home1">
+								<span></span>
+								<span></span>
+								<span></span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+	<!-- ===============>> Header section end here <<================= -->
+
+	<!-- ================> Page header start here <================== -->
+	<section class="page-header bg--cover" style="background-image:url({{ asset('assets/images/header/1.png') }})">
+		<div class="container">
+			<div class="page-header__content" data-aos="fade-right" data-aos-duration="1000">
+				<h2>Contact Us</h2>
+				<nav style="--bs-breadcrumb-divider: '/';" aria-label="breadcrumb">
+					<ol class="breadcrumb mb-0">
+						<li class="breadcrumb-item">
+							<a href="{{ path('home') }}">Home</a>
+						</li>
+						<li class="breadcrumb-item active" aria-current="page">Contact Us</li>
+					</ol>
+				</nav>
+			</div>
+			<div class="page-header__shape">
+				<span class="page-header__shape-item page-header__shape-item--1"><img src="{{ asset('assets/images/header/2.png') }}" alt="shape-icon"></span>
+			</div>
+		</div>
+	</section>
+	<!-- ================> Page header end here <================== -->
+
+	<!-- ===============>> Contact section start here <<================= -->
+	<div class="contact padding-top padding-bottom">
+		<div class="container">
+			<div class="contact__wrapper">
+				<div class="row g-5">
+					<div class="col-md-5">
+						<div class="contact__info" data-aos="fade-right" data-aos-duration="1000">
+							<div class="contact__social">
+								<h3>let’s
+									<span>get in touch</span>
+									with us</h3>
+								<ul class="social">
+									<li class="social__item">
+										<a href="#" class="social__link social__link--style4 active">
+											<i class="fab fa-facebook-f"></i>
+										</a>
+									</li>
+									<li class="social__item">
+										<a href="#" class="social__link social__link--style4">
+											<i class="fab fa-instagram"></i>
+										</a>
+									</li>
+									<li class="social__item">
+										<a href="#" class="social__link social__link--style4">
+											<i class="fa-brands fa-linkedin-in"></i>
+										</a>
+									</li>
+									<li class="social__item">
+										<a href="#" class="social__link social__link--style4">
+											<i class="fab fa-youtube"></i>
+										</a>
+									</li>
+									<li class="social__item">
+										<a href="#" class="social__link social__link--style4">
+											<i class="fab fa-twitter"></i>
+										</a>
+									</li>
+								</ul>
+							</div>
+							<div class="contact__details">
+								<div class="contact__item" data-aos="fade-right" data-aos-duration="1000">
+									<div class="contact__item-inner">
+										<div class="contact__item-thumb">
+											<span><img src="{{ asset('assets/images/contact/1.png') }}" alt="contact-icon" class="dark"></span>
+										</div>
+										<div class="contact__item-content">
+											<p>0917749254</p>
+											<p>0983888611</p>
+										</div>
+									</div>
+								</div>
+								<div class="contact__item" data-aos="fade-right" data-aos-duration="1100">
+									<div class="contact__item-inner">
+										<div class="contact__item-thumb">
+											<span><img src="{{ asset('assets/images/contact/2.png') }}" alt="contact-icon" class="dark"></span>
+										</div>
+										<div class="contact__item-content">
+											<p>Bitrader@gmail.com</p>
+											<p>hello@gmail.com</p>
+										</div>
+									</div>
+								</div>
+								<div class="contact__item" data-aos="fade-right" data-aos-duration="1200">
+									<div class="contact__item-inner">
+										<div class="contact__item-thumb">
+											<span><img src="{{ asset('assets/images/contact/3.png') }}" alt="contact-icon" class="dark"></span>
+										</div>
+										<div class="contact__item-content">
+											<p>88 Sheridan Street</p>
+											<p>534 Victoria Trail</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-7">
+						<div class="contact__form">
+							<form action="https://thetork.com/" data-aos="fade-left" data-aos-duration="1000">
+								<div class="row g-4">
+									<div class="col-12">
+										<div>
+											<label for="name" class="form-label">Name</label>
+											<input class="form-control" type="text" id="name" placeholder="Full Name">
+										</div>
+									</div>
+									<div class="col-12">
+										<div>
+											<label for="email" class="form-label">Email</label>
+											<input class="form-control" type="email" id="email" placeholder="Email here">
+										</div>
+									</div>
+									<div class="col-12">
+										<div>
+											<label for="textarea" class="form-label">Message</label>
+											<textarea cols="30" rows="5" class="form-control" id="textarea" placeholder="Enter Your Message"></textarea>
+										</div>
+									</div>
+								</div>
+								<button type="submit" class="trk-btn trk-btn--border trk-btn--primary mt-4 d-block">contact us now</button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="contact__shape">
+			<span class="contact__shape-item contact__shape-item--1"><img src="{{ asset('assets/images/contact/4.png') }}" alt="shape-icon"></span>
+			<span class="contact__shape-item contact__shape-item--2">
+				<span></span>
+			</span>
+		</div>
+	</div>
+	<!-- ===============>> Contact section end here <<================= -->
+
+	<!-- ===============>> footer start here <<================= -->
+	<footer class="footer brand-1">
+		<div class="container">
+			<div class="footer__wrapper">
+				<div class="footer__top footer__top--style1">
+					<div class="row gy-5 gx-4">
+						<div class="col-md-6">
+							<div class="footer__about">
+								<a href="{{ path('home') }}" class="footer__about-logo"><img src="{{ asset('assets/images/logo/logo-dark.png') }}" alt="Logo"></a>
+								<p class="footer__about-moto ">Welcome to our trading site! We offer the best, most affordable products and services around. Shop now and start finding great deals!</p>
+								<div class="footer__app">
+									<div class="footer__app-item footer__app-item--apple">
+										<div class="footer__app-inner">
+											<div class="footer__app-thumb">
+												<a href="https://www.apple.com/app-store/" target="_blank" class="stretched-link">
+													<img src="{{ asset('assets/images/footer/apple.png') }}" alt="footer-icon" class="dark">
+													<img src="{{ asset('assets/images/footer/apple-white.png') }}" alt="footer-icon" class="light">
+												</a>
+											</div>
+											<div class="footer__app-content">
+												<p>Download on the</p>
+												<h5>App Store</h5>
+											</div>
+										</div>
+									</div>
+									<div class="footer__app-item footer__app-item--google">
+										<div class="footer__app-inner">
+											<div class="footer__app-thumb">
+												<a href="https://play.google.com/store" target="_blank" class="stretched-link">
+													<img src="{{ asset('assets/images/footer/google.png') }}" alt="footer-icon" class="dark">
+													<img src="{{ asset('assets/images/footer/google-white.png') }}" alt="footer-icon" class="light">
+												</a>
+											</div>
+											<div class="footer__app-content">
+												<p>GET IT ON</p>
+												<h5>Google Play</h5>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="footer__list">
+								<h5>Contact Info</h5>
+								<ul class="footer__list-items">
+									<li>
+										<a href="mailto:bitrader@gmail.com">bitrader@gmail.com</a>
+									</li>
+									<li>
+										<a href="tel:0917749254">0917749254</a>
+									</li>
+									<li>
+										<a href="#">88 Sheridan Street</a>
+									</li>
+									<li>
+										<a href="#">534 Victoria Trail</a>
+									</li>
+								</ul>
+								<h5>Follow Us</h5>
+								<ul class="footer__list-items footer__list-items--social">
+									<li>
+										<a href="#" class="footer__social-link">
+											<i class="fab fa-facebook-f"></i>
+										</a>
+									</li>
+									<li>
+										<a href="#" class="footer__social-link">
+											<i class="fab fa-instagram"></i>
+										</a>
+									</li>
+									<li>
+										<a href="#" class="footer__social-link">
+											<i class="fa-brands fa-linkedin-in"></i>
+										</a>
+									</li>
+									<li>
+										<a href="#" class="footer__social-link">
+											<i class="fab fa-youtube"></i>
+										</a>
+									</li>
+									<li>
+										<a href="#" class="footer__social-link">
+											<i class="fab fa-twitter"></i>
+										</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="footer__bottom">
+					<div class="row align-items-center gy-3">
+						<div class="col-md-6">
+							<p>© 2025, Bitrader. All Rights Reserved</p>
+						</div>
+						<div class="col-md-6 text-md-end">
+							<ul class="footer__policy">
+								<li>
+									<a href="#">Privacy & Policy</a>
+								</li>
+								<li>
+									<a href="#">Terms & Conditions</a>
+								</li>
+								<li>
+									<a href="#">Site Map</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!-- ===============>> footer end here <<================= -->
+
 {% endblock %}

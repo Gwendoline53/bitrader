@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Attribute\Route;
 
 final class PriceController extends AbstractController
 {
-    #[Route('/price', name: 'app_price')]
+    #[Route('/price', name: 'price')]
     public function index(): Response
     {
         return $this->render('price/index.html.twig', [
